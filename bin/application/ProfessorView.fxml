@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ScrollPane?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.ProfessorViewController" >
+
+    <GridPane VBox.vgrow="ALWAYS"  prefWidth="800" prefHeight="600" alignment="CENTER" style="-fx-background-color: #f0f0f0;" >
+        <!-- Add Student and Add Grade Sections (wrapped in an HBox) -->
+        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS">
+            <!-- Add Student Section -->
+            <VBox spacing="10"/>
+            
+            <VBox spacing="10" >
+                <Label text="Student FullName:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                <TextField fx:id="nameTextField" prefWidth="350" style="-fx-font-size: 15px;" />
+                <Label text="Student ID:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                <TextField fx:id="userIDTextField" prefWidth="350" style="-fx-font-size: 15px;" />
+                <Button text="Add Student" onAction="#addStudent" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white;"/>
+            </VBox>
+
+            <!-- Add Grade Section -->
+            <VBox spacing="10">
+                <Label text="Select Student:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                <ComboBox fx:id="studentComboBox" prefWidth="350" style="-fx-font-size: 15px;" />
+                <Label text="Subject:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                <TextField fx:id="subjectTextField" style="-fx-font-size: 15px;" />
+                <Label text="Grade:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+                <TextField fx:id="gradeTextField" style="-fx-font-size: 15px;" />
+                <Button text="Add Grade" onAction="#addGrade" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white;"/>
+                <VBox spacing="10"/>
+            </VBox>
+            
+            
+        </HBox>
+        
+
+        <!-- Grade Table Section -->
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="0"  GridPane.vgrow="ALWAYS" spacing="20" >
+	        
+		            <TableView fx:id="gradeTable" VBox.vgrow="ALWAYS" prefWidth="480">
+		                <columns>
+		                    <TableColumn text="Full Name" fx:id="nameColumn" prefWidth="150"/>
+		                    <TableColumn text="userID" fx:id="userIDColumn" prefWidth="100"/>
+		                    <TableColumn text="Grades" fx:id="gradesColumn" prefWidth="350"/>
+		                </columns>
+		            </TableView>
+		            <TableView fx:id="subjectTable" VBox.vgrow="ALWAYS">
+		                <columns>
+		                    <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="120"/>
+		                    <TableColumn text="Min" fx:id="minGradeColumn" prefWidth="60"/>
+		                    <TableColumn text="Max" fx:id="maxGradeColumn" prefWidth="60"/>
+		                    <TableColumn text="Avg" fx:id="avgGradeColumn" prefWidth="60"/>
+		                </columns>
+		            </TableView>
+        </HBox>
+    </GridPane>
+</VBox>

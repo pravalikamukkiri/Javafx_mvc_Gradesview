@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.StudentViewController" >
+
+    <GridPane VBox.vgrow="ALWAYS"  prefWidth="800" prefHeight="600" alignment="CENTER">
+        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS" >
+	        <VBox prefWidth="500">
+	            <HBox spacing="10" >
+	                <Label text="Name:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	                <Label fx:id="userNameLabel" style="-fx-font-size: 15px;" />
+	                
+	            </HBox>
+	            
+	             <HBox spacing="10" >
+	                <Label text="ID:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	                <Label fx:id="userIDLabel" style="-fx-font-size: 15px;" />
+	                
+	            </HBox>
+	            <HBox spacing="30"/>
+	        </VBox>
+	        
+	        <VBox spacing="10" prefWidth="300">
+	        	<Label text="Select Subject:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	        	<ComboBox fx:id="subjectComboBox" prefWidth="300" style="-fx-font-size: 15px;" />
+	        	<Button text="Get Statistics" onAction="#calculateStatistics" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white;"/>
+	        	
+	        </VBox>
+        </HBox>
+        
+
+        <!-- Grade Table Section -->
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS">
+        	<VBox prefWidth="500">
+	            <TableView fx:id="gradesTableView" editable="false">
+	                <columns>
+	                    <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="200"/>
+	                    <TableColumn text="Grade" fx:id="gradeColumn" prefWidth="300"/>
+	                </columns>
+	            </TableView>
+            </VBox>
+            <VBox prefWidth="300" alignment="CENTER">
+            	<HBox spacing="10" >
+	                <Label text="Minimum :" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	                <Label fx:id="minGradeLabel" style="-fx-font-size: 15px;" />
+	                
+	            </HBox>
+	            <HBox spacing="10" >
+	                <Label text="Maximum :" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	                <Label fx:id="maxGradeLabel" style="-fx-font-size: 15px;" />
+	                
+	            </HBox>
+	            <HBox spacing="10" >
+	                <Label text="Average :" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
+	                <Label fx:id="avgGradeLabel" style="-fx-font-size: 15px;" />
+	                
+	            </HBox>
+            </VBox>
+       </HBox>
+    </GridPane>
+</VBox>
