@@ -11,33 +11,67 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ComboBox?>
 
+<!--
+    Title: MainView.fxml
+    Description: FXML layout file defining the main login interface for the GradeTracker application.
+    Author: Pravalika Mukkiri
+    Version: 1.00 08-05-2023
+-->
+
+<!-- Root VBox element, the highest level of the layout hierarchy -->
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="application.MainViewController">
-
+	
+	<!-- GridPane for arranging content -->
     <GridPane prefWidth="800" prefHeight="600" alignment="CENTER" style="-fx-background-color: #f0f0f0;">
+    
         <!-- Main Login Section -->
         <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="20" alignment="CENTER" style="-fx-padding: 40px;">
+        
+        	 <!-- Title label -->
             <Label text="User Login" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-
+			
+			<!-- UserID input -->
             <HBox spacing="10" alignment="CENTER">
                 <Label text="UserID" style="-fx-font-size: 15px;" prefWidth="120"/>
                 <TextField fx:id="userIDField" prefWidth="250" style="-fx-font-size: 15px; -fx-prompt-text-fill: #b0b0b0;"/>
             </HBox>
-
+			
+			<!-- Password input -->
             <HBox spacing="10" alignment="CENTER">
                 <Label text="Password" style="-fx-font-size: 15px;" prefWidth="120"/>
                 <PasswordField fx:id="passwordField" prefWidth="250" style="-fx-font-size: 15px; -fx-prompt-text-fill: #b0b0b0;"/>
             </HBox>
-
+			
+			<!-- Role selection -->
             <HBox spacing="10" alignment="CENTER">
                 <Label text="Select Role" style="-fx-font-size: 15px;" prefWidth="120"/>
                 <ComboBox fx:id="roleComboBox" prefWidth="250" style="-fx-font-size: 15px; -fx-prompt-text-fill: #b0b0b0;">
-                   
+                  <!-- Role options will be populated dynamically by the application -->
                 </ComboBox>
             </HBox>
 
+			<!-- Login button -->
             <Button text="Login" onAction="#login" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white; -fx-padding: 10px 20px;"/>
         </VBox>
     </GridPane>
 </VBox>
+
+<!--
+	Description:
+    This FXML layout file, MainView.fxml, defines the main user interface for the GradeTracker application's login page. 
+    It incorporates a VBox container and a GridPane to arrange various JavaFX controls, providing a user-friendly login experience.
+    
+    The Main Login Section includes a VBox containing controls for user authentication. 
+    A Label introduces the login process. The UserID Input uses a TextField for users to input their user IDs. 
+    The Password Input consists of a PasswordField for secure password entry. 
+    The Role Selection employs a ComboBox to enable users to choose their user role (Professor or Student).
+    
+    A Login Button is present at the bottom, which users can click to initiate the login process.
+    The button's appearance is customized using CSS styling.
+    
+    Overall, this layout file creates an organized and intuitive login interface for the GradeTracker application,
+    facilitating easy user authentication.
+	
+-->
