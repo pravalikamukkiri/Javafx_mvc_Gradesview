@@ -1,8 +1,6 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.List;
 
 /*******
@@ -43,7 +41,7 @@ public class Professor {
 	
 	/**
 	 *  This method returns the list of students assigned to the professor.
-	 *  The method provides access to the students list for external classes to view the students managed by the professor.
+	 *  It provides access to the students list for external classes to view the students managed by the professor.
 	 * @return
 	 */ 
 	public List<Student> getStudents(){

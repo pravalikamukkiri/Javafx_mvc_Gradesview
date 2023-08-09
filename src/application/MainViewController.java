@@ -1,31 +1,23 @@
 package application;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
-import javafx.collections.FXCollections;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ToggleGroup;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import java.io.IOException;
 import javafx.scene.control.Button;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
-
 /*******
  * <p> Title: MainViewController Class. </p>
  * 
- * <p> Description: Main user interface for the GradeTracker</p>
+ * <p> Description:  The MainViewController class is responsible for controlling the Main user interface
+		for a user in the GradeTracker application. </p>
  * 
  * <p> Copyright: Pravalika Mukkiri © 2023 </p>
  * 
@@ -36,12 +28,13 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
  */
 
 public class MainViewController {
+	
 	/**
 	 * This class is the controller for the MainView.fxml file, which serves as the main user interface for 
 	 * the GradeTracker application. The MainViewController handles user interactions such as logging in and 
 	 * displaying the appropriate views based on the selected user role.
 	 * It works closely with the ProfessorViewController and StudentViewController to provide a seamless
-	 * and efficient experience for educators and students using the GradeTracker system.
+	 * and efficient experience for professors and students using the GradeTracker system.
 	 */
 	
 	@FXML
@@ -54,9 +47,13 @@ public class MainViewController {
     private Button loginButton; // A Button that initiates the login process.
 	
 	private String loggedInUserID; //  A String that stores the user ID of the logged-in user.
+	
 	private final List<User> users = new ArrayList<>(); // A List of User objects to store the registered users of the application.
+	
     private final List<Professor> professors = new ArrayList<>(); //  A List of Professor objects to store the registered professors of the application.
+    
     private final List<Student> students = new ArrayList<>(); // A List of Student objects to store the registered students of the application.
+    
     ProfessorViewController professorViewController;
     //  An instance of the ProfessorViewController to handle professor-related views and actions.
     
@@ -79,6 +76,7 @@ public class MainViewController {
     	String userID = userIDField.getText(); 
         String password = passwordField.getText();
         UserRole selectedRole = roleComboBox.getValue();
+        
         if (selectedRole != null && userID != "" && password !="") {
         	if(authenticateUser(userID,password,selectedRole)) { // Verifying the user's credentials.
         		loggedInUserID = userID;
@@ -154,7 +152,7 @@ public class MainViewController {
     private boolean authenticateUser(String userID, String password, UserRole role) {
         // It searches the users list to find a matching user.
         for (User user : users) {
-        	// If the user is found and their password and role match the entered credentials, the authentication is successful.
+        	// If the user is found and their password and role matches, the authentication is successful.
             if (user.getUserID().equals(userID)) {
             	if(user.getPassword().equals(password) && user.getRole() == role) {
             		return true;
@@ -175,7 +173,6 @@ public class MainViewController {
      * This method retrieves a Student object based on the given user ID. It iterates through the students list
      * to find a student with a matching user ID.
      * If the student is not found, it creates a new temporary student with a placeholder name ("xx") and the provided user ID.
-     * This temporary student is used to display information for the currently logged-in student.
      * @param userID
      * @return
      */

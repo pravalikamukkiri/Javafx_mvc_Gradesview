@@ -19,7 +19,7 @@ public enum UserRole {
 	PROFESSOR,
 	
 	// Represents the role of a student in the system. Students have access to view their own grade
-	// information, but they cannot modify or view other students' data.
+	// information and subject statistics, but they cannot modify or view other students' data.
 	STUDENT
 
 }

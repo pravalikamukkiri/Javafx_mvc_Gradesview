@@ -11,12 +11,23 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
+<!--
+    Title: StudentView.fxml
+    Description: FXML layout file defining the graphical user interface for the Student's view in the GradeTracker application.
+    Author: Pravalika Mukkiri
+    Version: 1.00 2023-08-05 The JavaFX-based GradeTracker
+-->
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="application.StudentViewController" >
 
+    <!-- GridPane for arranging content -->
     <GridPane VBox.vgrow="ALWAYS"  prefWidth="800" prefHeight="600" alignment="CENTER">
+
+        <!-- Student Information and Subject Selection Section -->
         <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS" >
+	        <!-- Student Information -->
 	        <VBox prefWidth="500">
 	            <HBox spacing="10" >
 	                <Label text="Name:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
@@ -32,6 +43,7 @@
 	            <HBox spacing="30"/>
 	        </VBox>
 	        
+	        <!-- Subject Selection -->
 	        <VBox spacing="10" prefWidth="300">
 	        	<Label text="Select Subject:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
 	        	<ComboBox fx:id="subjectComboBox" prefWidth="300" style="-fx-font-size: 15px;" />
@@ -40,9 +52,9 @@
 	        </VBox>
         </HBox>
         
-
-        <!-- Grade Table Section -->
+        <!-- Grade Table and Subject Statistics Section -->
         <HBox GridPane.rowIndex="1" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS">
+        	<!-- Grade Table -->
         	<VBox prefWidth="500">
 	            <TableView fx:id="gradesTableView" editable="false">
 	                <columns>
@@ -51,6 +63,8 @@
 	                </columns>
 	            </TableView>
             </VBox>
+            
+            <!-- Subject Statistics -->
             <VBox prefWidth="300" alignment="CENTER">
             	<HBox spacing="10" >
 	                <Label text="Minimum :" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
@@ -71,3 +85,18 @@
        </HBox>
     </GridPane>
 </VBox>
+
+<!--
+    Description:
+    This FXML layout file, StudentView.fxml, defines the graphical user interface (GUI) for the Student's view in the GradeTracker application. 
+    The layout incorporates VBox, GridPane, and various JavaFX controls to provide an interface for students to view their grade information and subject statistics.
+    
+    The Student Information and Subject Selection Section displays the student's name and ID. Students can select a subject from a ComboBox
+     and request statistics related to that subject by clicking the "Get Statistics" button.
+    
+    The Grade Table and Subject Statistics Section includes a TableView to present a tabular view of the student's grades. 
+    Columns display subject names and corresponding grades.
+    
+    Additionally, subject statistics such as minimum, maximum, and average grades are displayed in a VBox. 
+    The layout effectively visualizes essential student information and subject performance.
+-->

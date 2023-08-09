@@ -12,9 +12,6 @@ import javafx.collections.FXCollections;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.PasswordField;
-
 import javafx.beans.property.ReadOnlyObjectWrapper;
 
 /*******
@@ -95,7 +92,6 @@ public class ProfessorViewController {
 			gradeTable.getItems().add(student);
 		}
 		initializeStatistics();
-		
 	}
 	
 	
@@ -108,6 +104,7 @@ public class ProfessorViewController {
 		nameColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getName()));
         userIDColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getuserId()));
         gradesColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getGrades()));
+        
         studentComboBox.setItems(studentList);
         
         subjectColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getSubject()));
@@ -126,8 +123,8 @@ public class ProfessorViewController {
     	String name = nameTextField.getText();
     	String userID = userIDTextField.getText();
     	for(Student student : studentList) {
-    		if(userID.equals(student.getuserId())) {
-    			return;
+    		if(userID.equals(student.getuserId())) { // If a userID already exists, we can't add another student with the same userID.
+    			return; // Terminating the process here.
     		}
     	}
     	Student student = new Student(name,userID); // creating new student object with given Name and ID.
@@ -152,10 +149,11 @@ public class ProfessorViewController {
     	Student selectedStudent = studentComboBox.getSelectionModel().getSelectedItem();
     	String subjectString = subjectTextField.getText();
     	String gradeString = gradeTextField.getText();
+    	
     	if(selectedStudent != null && gradeString != "" && subjectString != "") {
     		try {
 	            int grade = Integer.parseInt(gradeString);
-	            if(selectedStudent.getGrades().containsKey(subjectString)) {
+	            if(selectedStudent.getGrades().containsKey(subjectString)) { // If the student already have a grade with this subject, update their grade.
 	            	selectedStudent.updateGrade(subjectString, grade);
 	            }
 	            else {

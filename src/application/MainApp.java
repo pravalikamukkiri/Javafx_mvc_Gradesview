@@ -27,8 +27,7 @@ public class MainApp extends Application{
 	} 
 	/**
 	 * The start method overrides the default start behavior and sets up the primary stage to display
-	 *  the MainView.fxml file, which serves as the main user interface for the GradeTracker application.   
-	 *  
+	 *  the MainView.fxml file, which serves as the main user interface for the GradeTracker application.  
 	 */
 	@Override     
 	public void start(Stage primaryStage) throws Exception { 
@@ -43,5 +42,4 @@ public class MainApp extends Application{
 		* Once the primary stage is set up, it is displayed to the user using primaryStage.show().
 		*/
    }
-	
 }

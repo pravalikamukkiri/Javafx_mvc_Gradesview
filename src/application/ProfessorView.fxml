@@ -17,7 +17,7 @@
     Title: ProfessorView.fxml
     Description: FXML layout file defining the Professor's view interface for the GradeTracker application.
     Author: Pravalika Mukkiri
-    Version: 1.00 08-05-2023
+    Version: 1.00 2023-08-05 The JavaFX-based GradeTracker
 -->
 
 <!-- Root VBox element, the highest level of the layout hierarchy -->

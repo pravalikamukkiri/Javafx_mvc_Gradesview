@@ -13,58 +13,94 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ScrollPane?>
 
+<!--
+    Title: ProfessorView.fxml
+    Description: FXML layout file defining the Professor's view interface for the GradeTracker application.
+    Author: Pravalika Mukkiri
+    Version: 1.00 2023-08-05 The JavaFX-based GradeTracker
+-->
+
+<!-- Root VBox element, the highest level of the layout hierarchy -->
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="application.ProfessorViewController" >
 
+    <!-- GridPane for arranging content -->
     <GridPane VBox.vgrow="ALWAYS"  prefWidth="800" prefHeight="600" alignment="CENTER" style="-fx-background-color: #f0f0f0;" >
+
         <!-- Add Student and Add Grade Sections (wrapped in an HBox) -->
         <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="30" GridPane.hgrow="ALWAYS">
-            <!-- Add Student Section -->
-            <VBox spacing="10"/>
             
+            <!-- Add Student Section -->
+            <VBox spacing="10"/>         
             <VBox spacing="10" >
+                <!-- Labels and TextFields for adding a new student -->
                 <Label text="Student FullName:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
                 <TextField fx:id="nameTextField" prefWidth="350" style="-fx-font-size: 15px;" />
                 <Label text="Student ID:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
                 <TextField fx:id="userIDTextField" prefWidth="350" style="-fx-font-size: 15px;" />
+                <!-- Button to add a new student -->
                 <Button text="Add Student" onAction="#addStudent" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white;"/>
             </VBox>
 
             <!-- Add Grade Section -->
             <VBox spacing="10">
+                <!-- ComboBox and TextFields for adding a new grade -->
                 <Label text="Select Student:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
                 <ComboBox fx:id="studentComboBox" prefWidth="350" style="-fx-font-size: 15px;" />
                 <Label text="Subject:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
                 <TextField fx:id="subjectTextField" style="-fx-font-size: 15px;" />
                 <Label text="Grade:" style="-fx-font-size: 15px; -fx-font-weight: bold;" />
                 <TextField fx:id="gradeTextField" style="-fx-font-size: 15px;" />
+                <!-- Button to add a new grade -->
                 <Button text="Add Grade" onAction="#addGrade" style="-fx-font-size: 15px; -fx-background-color: #007bff; -fx-text-fill: white;"/>
                 <VBox spacing="10"/>
             </VBox>
             
-            
         </HBox>
-        
 
-        <!-- Grade Table Section -->
+        <!-- Grade Table and Subject Statistics Section -->
         <HBox GridPane.rowIndex="1" GridPane.columnIndex="0"  GridPane.vgrow="ALWAYS" spacing="20" >
 	        
-		            <TableView fx:id="gradeTable" VBox.vgrow="ALWAYS" prefWidth="480">
-		                <columns>
-		                    <TableColumn text="Full Name" fx:id="nameColumn" prefWidth="150"/>
-		                    <TableColumn text="userID" fx:id="userIDColumn" prefWidth="100"/>
-		                    <TableColumn text="Grades" fx:id="gradesColumn" prefWidth="350"/>
-		                </columns>
-		            </TableView>
-		            <TableView fx:id="subjectTable" VBox.vgrow="ALWAYS">
-		                <columns>
-		                    <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="120"/>
-		                    <TableColumn text="Min" fx:id="minGradeColumn" prefWidth="60"/>
-		                    <TableColumn text="Max" fx:id="maxGradeColumn" prefWidth="60"/>
-		                    <TableColumn text="Avg" fx:id="avgGradeColumn" prefWidth="60"/>
-		                </columns>
-		            </TableView>
+            <!-- TableView for displaying student grades -->
+            <TableView fx:id="gradeTable" VBox.vgrow="ALWAYS" prefWidth="480">
+                <columns>
+                    <!-- TableColumns for student names, user IDs, and grades -->
+                    <TableColumn text="Full Name" fx:id="nameColumn" prefWidth="150"/>
+                    <TableColumn text="userID" fx:id="userIDColumn" prefWidth="100"/>
+                    <TableColumn text="Grades" fx:id="gradesColumn" prefWidth="350"/>
+                </columns>
+            </TableView>
+            
+            <!-- TableView for displaying subject statistics -->
+            <TableView fx:id="subjectTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <!-- TableColumns for subject names, minimum, maximum, and average grades -->
+                    <TableColumn text="Subject" fx:id="subjectColumn" prefWidth="120"/>
+                    <TableColumn text="Min" fx:id="minGradeColumn" prefWidth="60"/>
+                    <TableColumn text="Max" fx:id="maxGradeColumn" prefWidth="60"/>
+                    <TableColumn text="Avg" fx:id="avgGradeColumn" prefWidth="60"/>
+                </columns>
+            </TableView>
         </HBox>
     </GridPane>
 </VBox>
+
+
+<!--
+    Description:
+    This FXML layout file, ProfessorView.fxml, defines the graphical user interface (GUI) for the Professor's view in the GradeTracker
+    application. The layout is structured using VBox, GridPane, and various other JavaFX controls.
+    
+    The interface is designed to facilitate the management of student information and grades by professors.
+    It includes sections for adding students and grades, as well as displaying student grade data and subject statistics.
+    
+    In the Add Student and Add Grade sections, users can input relevant information, such as student names, IDs, subjects, and grades.
+    Upon adding, this information is stored and managed by the application.
+    
+    The Grade Table section contains a TableView that presents a tabular view of student grades. 
+    The table is divided into columns representing student names, user IDs, and grades.
+    
+    The Subject Statistics section also utilizes a TableView to display statistics related to subjects. 
+    It displays minimum, maximum and average grade values for each subject.
+-->

@@ -15,7 +15,7 @@
     Title: StudentView.fxml
     Description: FXML layout file defining the graphical user interface for the Student's view in the GradeTracker application.
     Author: Pravalika Mukkiri
-    Version: 1.00 08-05-2023
+    Version: 1.00 2023-08-05 The JavaFX-based GradeTracker
 -->
 
 <VBox xmlns="http://javafx.com/javafx"
